@@ -903,7 +903,11 @@ class RagModelIntegrationTests(unittest.TestCase):
     def test_rag_sequence_generate_batch(self):
         tokenizer = RagTokenizer.from_pretrained("facebook/rag-sequence-nq")
         retriever = RagRetriever.from_pretrained(
-            "facebook/rag-sequence-nq", index_name="exact", use_dummy_dataset=True, dataset_revision="b24a417", trust_remote_code=True,
+            "facebook/rag-sequence-nq",
+            index_name="exact",
+            use_dummy_dataset=True,
+            dataset_revision="b24a417",
+            trust_remote_code=True,
         )
         rag_sequence = RagSequenceForGeneration.from_pretrained("facebook/rag-sequence-nq", retriever=retriever).to(
             torch_device
@@ -946,6 +950,7 @@ class RagModelIntegrationTests(unittest.TestCase):
             index_name="exact",
             use_dummy_dataset=True,
             dataset_revision="b24a417",
+            trust_remote_code=True,
         )
         rag_sequence = RagSequenceForGeneration.from_pretrained("facebook/rag-sequence-nq", retriever=retriever).to(
             torch_device
@@ -995,7 +1000,11 @@ class RagModelIntegrationTests(unittest.TestCase):
     def test_rag_token_generate_batch(self):
         tokenizer = RagTokenizer.from_pretrained("facebook/rag-token-nq")
         retriever = RagRetriever.from_pretrained(
-            "facebook/rag-token-nq", index_name="exact", use_dummy_dataset=True, dataset_revision="b24a417"
+            "facebook/rag-token-nq",
+            index_name="exact",
+            use_dummy_dataset=True,
+            dataset_revision="b24a417",
+            trust_remote_code=True,
         )
         rag_token = RagTokenForGeneration.from_pretrained("facebook/rag-token-nq", retriever=retriever).to(
             torch_device
