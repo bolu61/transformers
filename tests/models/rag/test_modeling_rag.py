@@ -930,6 +930,9 @@ class RagModelIntegrationTests(unittest.TestCase):
 
         outputs = tokenizer.batch_decode(output_ids, skip_special_tokens=True)
 
+        # PR #31938 cause the output being changed from `june 22, 2018` to `june 22 , 2018`.
+        # Need @itazap to take a look
+        # TODO: itazap
         EXPECTED_OUTPUTS = [
             " albert einstein",
             " june 22 , 2018",
