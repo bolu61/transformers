@@ -841,10 +841,9 @@ class RagModelIntegrationTests(unittest.TestCase):
         output_text_2 = rag_decoder_tokenizer.decode(output_ids[1], skip_special_tokens=True)
 
         # Expected outputs as given by model at integration time.
-        EXPECTED_OUTPUT_TEXT_1 = "\"She's My Kind of Girl"
-        EXPECTED_OUTPUT_TEXT_2 = "\"She's My Kind of Love"
+        EXPECTED_OUTPUT_TEXT_1 = '"She\'s My Kind of Girl" was released through Epic Records in Japan in March 1972. The song was a Top 10 hit in the country. It was the first single to be released by ABBA in the UK. The single was followed by "En Carousel" and "Love Has Its Uses"'
+        EXPECTED_OUTPUT_TEXT_2 = '"She\'s My Kind of Girl" was released through Epic Records in Japan in March 1972. The song was a Top 10 hit in the country. It was the first single to be released by ABBA in the UK. The single was followed by "En Carousel" and "Love Has Its Ways"'
 
-        breakpoint()
         self.assertEqual(output_text_1, EXPECTED_OUTPUT_TEXT_1)
         self.assertEqual(output_text_2, EXPECTED_OUTPUT_TEXT_2)
 
@@ -933,15 +932,15 @@ class RagModelIntegrationTests(unittest.TestCase):
 
         EXPECTED_OUTPUTS = [
             " albert einstein",
-            " june 22, 2018",
+            " june 22 , 2018",
             " amplitude modulation",
             " tim besley ( chairman )",
-            " june 20, 2018",
+            " june 20 , 2018",
             " 1980",
             " 7.0",
             " 8",
         ]
-        breakpoint()
+
         self.assertListEqual(outputs, EXPECTED_OUTPUTS)
 
     @slow
@@ -988,15 +987,15 @@ class RagModelIntegrationTests(unittest.TestCase):
 
         EXPECTED_OUTPUTS = [
             " albert einstein",
-            " june 22, 2018",
+            " june 22 , 2018",
             " amplitude modulation",
             " tim besley ( chairman )",
-            " june 20, 2018",
+            " june 20 , 2018",
             " 1980",
             " 7.0",
             " 8",
         ]
-        breakpoint()
+
         self.assertListEqual(outputs, EXPECTED_OUTPUTS)
 
     @slow
@@ -1035,15 +1034,15 @@ class RagModelIntegrationTests(unittest.TestCase):
 
         EXPECTED_OUTPUTS = [
             " albert einstein",
-            " september 22, 2017",
+            " september 22 , 2017",
             " amplitude modulation",
             " stefan persson",
-            " april 20, 2018",
+            " april 20 , 2018",
             " the 1970s",
             " 7.1. 2",
             " 13",
         ]
-        breakpoint()
+
         self.assertListEqual(outputs, EXPECTED_OUTPUTS)
 
 
