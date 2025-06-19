@@ -844,6 +844,7 @@ class RagModelIntegrationTests(unittest.TestCase):
         EXPECTED_OUTPUT_TEXT_1 = "\"She's My Kind of Girl"
         EXPECTED_OUTPUT_TEXT_2 = "\"She's My Kind of Love"
 
+        breakpoint()
         self.assertEqual(output_text_1, EXPECTED_OUTPUT_TEXT_1)
         self.assertEqual(output_text_2, EXPECTED_OUTPUT_TEXT_2)
 
@@ -940,6 +941,7 @@ class RagModelIntegrationTests(unittest.TestCase):
             " 7.0",
             " 8",
         ]
+        breakpoint()
         self.assertListEqual(outputs, EXPECTED_OUTPUTS)
 
     @slow
@@ -994,6 +996,7 @@ class RagModelIntegrationTests(unittest.TestCase):
             " 7.0",
             " 8",
         ]
+        breakpoint()
         self.assertListEqual(outputs, EXPECTED_OUTPUTS)
 
     @slow
@@ -1040,6 +1043,7 @@ class RagModelIntegrationTests(unittest.TestCase):
             " 7.1. 2",
             " 13",
         ]
+        breakpoint()
         self.assertListEqual(outputs, EXPECTED_OUTPUTS)
 
 
