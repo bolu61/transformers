@@ -28,8 +28,8 @@ from typing import Any, Callable, Literal, NewType, Optional, Union, get_type_hi
 import yaml
 
 
-DataClass = NewType("DataClass", Any)
-DataClassType = NewType("DataClassType", Any)
+DataClass = Any
+DataClassType = type[Any]
 
 
 # From https://stackoverflow.com/questions/15008758/parsing-boolean-values-with-argparse
@@ -126,19 +126,16 @@ class HfArgumentParser(ArgumentParser):
     dataclass_types: Iterable[DataClassType]
 
     def __init__(self, dataclass_types: Optional[Union[DataClassType, Iterable[DataClassType]]] = None, **kwargs):
+        # To make the default appear when using --help
+        kwargs.setdefault("formatter_class", ArgumentDefaultsHelpFormatter)
+        super().__init__(**kwargs)
+
         # Make sure dataclass_types is an iterable
         if dataclass_types is None:
             dataclass_types = []
         elif not isinstance(dataclass_types, Iterable):
             dataclass_types = [dataclass_types]
 
-        # To make the default appear when using --help
-        if "formatter_class" not in kwargs:
-            kwargs["formatter_class"] = ArgumentDefaultsHelpFormatter
-        super().__init__(**kwargs)
-        if dataclasses.is_dataclass(dataclass_types):
-            dataclass_types = [dataclass_types]
-        self.dataclass_types = list(dataclass_types)
         for dtype in self.dataclass_types:
             self._add_dataclass_arguments(dtype)
 
